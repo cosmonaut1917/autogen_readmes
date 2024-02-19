@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "inquirer": "^8.2.4",
+    "node": "^21.6.2",
+    "path": "^0.12.7"
+  }
+}
