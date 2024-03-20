@@ -1,35 +1,23 @@
-// creates a function that returns a license badge based on choice
-function renderLicenseBadge(license) {
-    if (license !== 'none') {
-        return `![Github license](https://img.shields.io/badge/license-${license}-yellowgreen.svg)`;
-    }
-    return "";
-}
+// Function to generate license badge
+const generateLicenseBadge = license => 
+    license !== 'none' ? `![Github license](https://img.shields.io/badge/license-${license}-yellowgreen.svg)` : "";
 
-// creates a function that returns a license link
+// Function to generate license link
+const generateLicenseLink = license => 
+    license !== 'none' ? `\n* [license](#license)\n` : "";
 
-function renderLicenseLink(liscense) {
-    if (liscense !== 'none') {
-        return `\n* [license](#license)\n`;
-    }
-    return "";
-}
-// creates a function that returns the license section of the readme
-function renderLicenseSelection(license) {
-    if (license !== 'none') {
-        return `## License
-        licensed under the ${license} license`
-        
-    }
-    return "";
-}
-// generates the readme and should display it 
-function generatemarkdown(Data) {
-    return `# ${Data.title}
-    by ${Data.name}
-    ${renderLicenseBadge(Data.license)}
+// Function to generate license section
+const generateLicenseSection = license => 
+    license !== 'none' ? `## License\nlicensed under the ${license} license` : "";
+
+// Function to generate markdown
+const generateMarkdown = data => {
+    const { title, name, license, features, require, usage, contributors, test, email, creator } = data;
+
+    return `# ${title}
+    by ${name}
+    ${generateLicenseBadge(license)}
     ## Table of Contents 
-    ## Table of Contents
     * [Features](#features)
     * [Languages & Dependencies](#languagesanddependencies)
     * [How to Use This Application](#HowtoUseThisApplication)
@@ -37,20 +25,19 @@ function generatemarkdown(Data) {
     * [Testing](#testing)
     * [Questions](#questions)
     ## Features
-    ${Data.features}
+    ${features}
     ## Languages & Dependencies
-    ${Data.require}
+    ${require}
     ## How to Use This Application:
-    ${Data.usage}
+    ${usage}
     ## Contributors
-    ${Data.contributors}
+    ${contributors}
     ## Testing
-    ${Data.test}
+    ${test}
     ## Questions
-    Please send your questions [here](mailto:${Data.email}?subject=[GitHub]%20Dev%20Connect) or visit [github/${Data.creator}](https://github.com/${Data.creator}).
-    ;
-    }
-${renderLicenseSelection(Data.license)}
-`;
+    Please send your questions [here](mailto:${email}?subject=[GitHub]%20Dev%20Connect) or visit [github/${creator}](https://github.com/${creator}).
+    ${generateLicenseSection(license)}
+    `;
 }
-module.exports = generatemarkdown
+
+module.exports = generateMarkdown;
