@@ -12,7 +12,7 @@ const generateLicenseSection = license =>
 
 // Function to generate markdown
 const generateMarkdown = data => {
-    const { title, name, license, features, require, usage, contributors, test, email, creator } = data;
+    const { title, name, license, features, require, usage, contributors, install, test, email, creator } = data;
 
     return `# ${title}
     by ${name}
@@ -32,6 +32,8 @@ const generateMarkdown = data => {
     ${usage}
     ## Contributors
     ${contributors}
+    ## Installation
+    ${install}
     ## Testing
     ${test}
     ## Questions
