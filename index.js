@@ -16,6 +16,7 @@ const questions = [
     { type: 'input', name: 'email', message: 'Please type in your email' },
     { type: 'input', name: 'name', message: 'Please type in your name' },
     { type: 'input', name: 'contributors', message: 'Please list any and all contributors that helped on this work (use GitHub usernames)' },
+    { type: 'input', name: 'install', message: 'Please provide installation instructions' },
     { type: 'input', name: 'test', message: 'Please provide a walkthrough of this project' },
 ];
 
